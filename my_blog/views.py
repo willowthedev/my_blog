@@ -30,8 +30,10 @@ def detail_view(request, year, month, day, post):
             new_comment.post = post
             new_comment.save()
     else:
+        views = post.get_view_count()
+        post.increment_view_count()
         comment_form = CommentForm()
-    return render(request, 'my_blog/detail_view.html', {'post': post, 'comments': comments, 'new_comment': new_comment, 'comment_form': comment_form})
+    return render(request, 'my_blog/detail_view.html', {'post': post, 'comments': comments, 'new_comment': new_comment, 'comment_form': comment_form, 'view_count': views})
 
 def search_view(request): 
     form = SearchForm()

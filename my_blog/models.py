@@ -20,6 +20,8 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10, choices=status_choices, default='draft')
+    view_count = models.IntegerField(default=0)
+
     tags = TaggableManager()
 
     class Meta: 
@@ -30,6 +32,13 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         return reverse('my_blog:detail_view', args=[self.publish.year, self.publish.month, self.publish.day, self.slug])
+
+    def increment_view_count(self):
+        self.view_count += 1
+        self.save()
+
+    def get_view_count(self):
+        return "{:,}".format(self.view_count)
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
