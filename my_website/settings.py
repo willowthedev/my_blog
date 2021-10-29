@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'my_website.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
+DEVELOPMENT_MODE = False
 
 if DEVELOPMENT_MODE is True:
     DATABASES = {
@@ -135,7 +135,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = ['/workspace/my_blog/static']#(os.path.join(BASE_DIR, "static"),)
+STATICFILES_DIRS = ['/workspace/staticfiles/admin', '/workspace/staticfiles/my_blog']
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
