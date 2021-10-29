@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'my_home.apps.MyHomeConfig',
     'my_blog.apps.MyBlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -135,7 +136,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = ['/workspace/static', '/workspace/my_blog/static']
+STATICFILES_DIRS = ['/workspace/static', '/workspace/my_blog/static', '/workspace/my_home/static']
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
