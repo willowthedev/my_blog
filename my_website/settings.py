@@ -135,7 +135,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = ['/workspace/my_blog/static', '/workspace/my_website/static']
+STATICFILES_DIRS = ['/workspace/my_blog/static', '/workspace/static/admin']
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
