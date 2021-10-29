@@ -1,0 +1,75 @@
+{% extends "my_blog/base.html" %}
+{% block title%}{{ post.title }}{% endblock %}
+
+{% block content %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{ post.title }}</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ post.publish }}</h6>
+                    <p class="card-text">{{ post.body|safe }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+{% if new_comment %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success">
+                <strong>Success!</strong> Your comment has been submitted.
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ comment_form.as_p }}
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<br>
+{% for comment in comments %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{ comment.name }}</h4>
+                    <p class="card-text">{{ comment.body }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% empty %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">There are no comments yet.</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <br>
+    {% endblock %}

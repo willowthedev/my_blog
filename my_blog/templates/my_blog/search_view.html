@@ -1,0 +1,64 @@
+{% extends "my_blog/base.html" %}
+{% block title%}Willow's Developer Diary{% endblock %}
+
+{% block content %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <form method="get">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+{% if query %}
+    {% if results|length == 0 %}
+    <div class="container">
+        <div class="col-md-12">
+            <div class="alert alert-danger">
+                <strong>No luck!</strong> There are no results matching: <strong>{{ query }}</strong>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container">
+        <div class="col-md-12">
+            <div class="alert alert-success">
+                <strong>Success!</strong> Here are the results for: <strong>{{ query }}</strong>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        {% for post in results %}
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ post.title }}</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ post.author }} - {{ post.publish }}</h6>
+                        <p class="card-text">{{ post.body|safe|truncatewords:32 }}</p>
+                        <a href="{{ post.get_absolute_url }}" class="card-link">Read More...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+
+
+
+
+{% endif %}
+
+{% endblock %}
