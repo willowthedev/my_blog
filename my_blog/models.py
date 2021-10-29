@@ -38,7 +38,7 @@ class Post(models.Model):
         self.save()
 
     def get_view_count(self):
-        return "{:,}".format(self.view_count)
+        return f'{self.view_count:,}'
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
