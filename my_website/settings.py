@@ -29,8 +29,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY') or get_random_secret_key()
 DEBUG = False #os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = ['*']
-#os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
-
 
 
 # Application definition
