@@ -1,4 +1,5 @@
 {% extends "my_blog/base.html" %}
+{% load mathfilters %}d
 {% block title%}Willow's Developer Diary{% endblock %}
 
 {% block content %}
@@ -9,7 +10,7 @@
         <br>
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card" data-aos="zoom-in" data-aos-delay="{{100|mul:forloop.counter}}">
                     <div class="card-body">
                         <h4 class="card-title">{{ post.title }}</h4>
                         <h6 class="card-subtitle mb-2 text-muted">{{ post.author }} - {{ post.publish }}</h6>

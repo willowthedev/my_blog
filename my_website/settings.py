@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'ckeditor',
     'taggit',
+    'mathfilters',
 ]
 
 MIDDLEWARE = [
