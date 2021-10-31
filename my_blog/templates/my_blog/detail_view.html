@@ -1,4 +1,6 @@
 {% extends "my_blog/base.html" %}
+{% load tz %}
+{% load mathfilters %}
 {% block title%}{{ post.title }}{% endblock %}
 
 
@@ -7,10 +9,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card" data-aos="zoom-in">
                 <div class="card-body">
                     <h4 class="card-title">{{ post.title }}</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ post.publish }}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ post.publish|timezone:"America/Chicago" }} Central Standard Time</h6>
                     <div class="card-text">{{ post.body|safe }}</div>
                     <p class="card-subtitle text-muted">This post has been viewed {{ view_count }} times.</p>
                 </div>
@@ -23,7 +25,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="alert alert-success">
+            <div class="alert alert-success" data-aos="zoom-in">
                 <strong>Success!</strong> Your comment has been submitted.
             </div>
         </div>
@@ -33,7 +35,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card" data-aos="zoom-in">
                 <div class="card-body">
                     <form method="post">
                         {% csrf_token %}
@@ -52,7 +54,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card" data-aos="zoom-in" data-aos-delay="{{100|mul:forloop.counter0}}">
                 <div class="card-body">
                     <h4 class="card-title">{{ comment.name }}</h4>
                     <p class="card-text">{{ comment.body }}</p>
@@ -65,7 +67,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card" data-aos="zoom-in" data-aos-delay="{{100|mul:forloop.counter0}}">
                 <div class="card-body">
                     <h4 class="card-title">There are no comments yet.</h4>
                 </div>

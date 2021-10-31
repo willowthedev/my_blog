@@ -17,13 +17,12 @@ class PostListView(ListView):
     paginate_by = 10
     template_name = 'my_blog/list_view.html'
 
-    
-
 def detail_view(request, year, month, day, post): 
     post = get_object_or_404(Post, slug = post, status = 'published', publish__year = year, publish__month = month, publish__day = day)
     comments = post.comments.filter(active = True)
     new_comment = None
     if request.method == 'POST':
+        views = post.get_view_count()
         comment_form = CommentForm(data = request.POST)
         if comment_form.is_valid():
             new_comment = comment_form.save(commit = False)

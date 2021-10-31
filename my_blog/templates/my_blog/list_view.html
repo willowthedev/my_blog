@@ -1,5 +1,7 @@
 {% extends "my_blog/base.html" %}
-{% load mathfilters %}d
+{% load tz %}
+{% load mathfilters %}
+
 {% block title%}Willow's Developer Diary{% endblock %}
 
 {% block content %}
@@ -10,10 +12,10 @@
         <br>
         <div class="row">
             <div class="col-md-12">
-                <div class="card" data-aos="zoom-in" data-aos-delay="{{100|mul:forloop.counter}}">
+                <div class="card" data-aos="zoom-in" data-aos-delay="{{100|mul:forloop.counter0}}">
                     <div class="card-body">
                         <h4 class="card-title">{{ post.title }}</h4>
-                        <h6 class="card-subtitle mb-2 text-muted">{{ post.author }} - {{ post.publish }}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ post.author }} - {{ post.publish|timezone:"America/Chicago" }} Central Standard Time </h6>
                         <p class="card-text">{{ post.body|safe|truncatewords:32 }}</p>
                         <a href="{{ post.get_absolute_url }}" class="card-link">Read More...</a>
                     </div>
