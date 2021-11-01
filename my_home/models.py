@@ -6,6 +6,7 @@ class Card(models.Model):
     description = models.TextField()
     image = models.URLField()
     link = models.URLField()
+    source = models.URLField(default="https://willowthe.dev")
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
