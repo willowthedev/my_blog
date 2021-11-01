@@ -2,8 +2,6 @@
 {% load tz %}
 {% load mathfilters %}
 {% block title%}{{ post.title }}{% endblock %}
-
-
 {% block content %}
 <br>
 <div class="container">
@@ -51,12 +49,11 @@
 </div>
 {% endif %}
 <br>
-{% if comments %}
 {% for comment in comments %}
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="card" data-aos="zoom-in" data-aos-delay="{{100}}">
+            <div class="card" data-aos="zoom-in">
                 <div class="card-body">
                     <h4 class="card-title">{{ comment.name }}</h4>
                     <p class="card-text">{{ comment.body }}</p>
@@ -66,17 +63,17 @@
     </div>
 </div>
 {% endfor %}
-{% else %}
+{% empty %}
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="card" data-aos="zoom-in" data-aos-delay="{{100}}">
                 <div class="card-body">
-                    <h4 class="card-title">There are no comments yet.</h4>
+                    <h4 class="card-title">There are no comments yet. Would you like to add one?</h4>
                 </div>
             </div>
         </div>
     </div>
     <br>
-{% endif %}
-{% endblock %}
+    {% endif %}
+    {% endblock %}
