@@ -1,0 +1,34 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: table
+}
+
+.center {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    
+}
+
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15vw;
+    font-weight: 200;
+    
+}
+
+.white_highlight {
+    background-color: #ffffff;
+    border-radius: 20px;
+    line-height: 1.5;
+    padding-top: 0.2vw;
+    padding-bottom: 0.2vw;
+    padding-right: 0.9vw;
+    padding-left: 0.9vw;
+    font-weight: 400;
+    text-shadow: none;
+    box-shadow: 3px 2px 2px rgba(199, 130, 59, 0.15);
+}

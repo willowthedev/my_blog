@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(('my_home.urls', 'my_home'), namespace='my_home')),
     path('blog/', include(('my_blog.urls', 'my_blog'), namespace='my_blog')),
+    path('randomcolor/', include(('my_randomcolor.urls', 'my_randomcolor'), namespace='my_randomcolor')),
 ]
