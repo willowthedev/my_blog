@@ -13,7 +13,7 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
             <div class="container">
-                <a class="navbar-brand" href="{% url 'my_blog:blog-home' %}">Willow's Developer Diary</a>
+                <a class="navbar-brand" href="{% url 'my_blog:list_view' %}">Willow!</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -22,10 +22,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">My Twitter</a>
+                            <a class="nav-link" href="https://twitter.com/willowthedev">My Twitter</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">My Github</a>
+                            <a class="nav-link" href="https://github.com/willowthedev">My Github</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'my_blog:search_view' %}">Search</a>
