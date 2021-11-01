@@ -11,25 +11,24 @@
             CSS. On this website you can find my projects and my contact information.</p>
     </div>
 </div>
-<div class="album py-5 bg-light">
+<div class="album py-5 bg-dark">
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for card in cards %}
             <div class="col">
                 <div class="card shadow-sm">
-                    <img class="card-img-top" src="{% static 'my_home/random_color_preview.png' %}"
-                        alt="preview of the random color website">
+                    <img class="card-img-top" src="{{ card.image }}">
                     <div class="card-body">
-                        <h5 class="card-title">Random Color</h5>
-                        <p class="card-text">This is a webpage that provides a random color along with its associated
-                            hex value each time the pach is loaded.</p>
+                        <h5 class="card-title">{{ card.title }}</h5>
+                        <p class="card-text"> {{ card.description }}</p>
                         <div class="btn-group">
-                            <a href="{% url 'my_randomcolor:index' %}"><button type="button"
+                            <a href="{{ card.link }}"><button type="button"
                                     class="btn btn-sm btn-outline-secondary">View</button></a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- <div class="col">
+                {% endfor %}
+                <!-- <div class="col">
                 <div class="card shadow-sm">
                     <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
                         xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
@@ -73,7 +72,7 @@
                     </div>
                 </div>
             </div> -->
+            </div>
         </div>
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
