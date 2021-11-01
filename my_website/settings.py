@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY') or get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG')
+DEBUG = os.environ.get('DEBUG') or True
 ALLOWED_HOSTS = ['*']
 
 
@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'my_home.apps.MyHomeConfig',
     'my_blog.apps.MyBlogConfig',
+    'my_randomcolor.apps.MyRandomcolorConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,7 +81,7 @@ WSGI_APPLICATION = 'my_website.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-DEVELOPMENT_MODE = False
+DEVELOPMENT_MODE = os.environ.get('DEVELOPMENT_MODE') or True
 
 if DEVELOPMENT_MODE is True:
     DATABASES = {
