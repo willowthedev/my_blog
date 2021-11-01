@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY') or get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG') or True
+DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 
@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'my_website.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-DEVELOPMENT_MODE = os.environ.get('DEVELOPMENT_MODE') or True
+DEVELOPMENT_MODE = DEBUG
 
 if DEVELOPMENT_MODE is True:
     DATABASES = {
