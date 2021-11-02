@@ -1,6 +1,10 @@
 from django.db import models
 
 # Create your models here.
+class Header(models.Model): 
+    title = models.CharField(max_length=256)
+    subtitle = models.TextField()
+
 class Card(models.Model):
     title = models.CharField(max_length=128)
     description = models.TextField()

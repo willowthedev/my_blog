@@ -2,15 +2,16 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.core.mail import send_mail, BadHeaderError
 from .forms import ContactForm
-from .models import Card
+from .models import Header, Card
 
 
 # Create your views here.
 # def index(request):
 #     return render(request, 'my_home/index.html')
 def index(request): 
+    header = Header.objects.first()
     cards = Card.objects.all()
-    return render(request, 'my_home/index.html', {'cards': cards})
+    return render(request, 'my_home/index.html', {'header': header, 'cards': cards})
 
 def contact(request):
     if request.method == 'POST': 
