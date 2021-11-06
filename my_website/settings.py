@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'taggit',
     'mathfilters',
     'tailwind',
-    'colorfield',
 ]
 
 MIDDLEWARE = [
