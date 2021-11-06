@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY') or get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'my_home.apps.MyHomeConfig',
     'my_blog.apps.MyBlogConfig',
     'my_randomcolor.apps.MyRandomcolorConfig',
+    'my_lifx.apps.MyLifxConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'taggit',
     'mathfilters',
     'tailwind',
+    'colorfield',
 ]
 
 MIDDLEWARE = [
@@ -136,7 +138,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = ['/workspace/static', '/workspace/my_blog/static', '/workspace/my_home/static']
+STATICFILES_DIRS = ['/workspace/static', '/workspace/my_blog/static', '/workspace/my_home/static'] 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
@@ -151,4 +153,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
+LIFX_TOKEN = os.environ.get('LIFX_TOKEN') 
 

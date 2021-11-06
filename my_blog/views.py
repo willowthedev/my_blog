@@ -10,6 +10,7 @@ from .forms import CommentForm, SearchForm
 #     posts = Post.objects.all()
 
 #     return render(request, 'my_blog/list_view.html', {'posts': posts})
+
 class PostListView(ListView):
     model = Post
     queryset = Post.objects.all()
